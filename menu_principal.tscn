@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqtnrj22rlsx2"]
+
+[ext_resource type="Texture2D" uid="uid://gr75xcs1wb1g" path="res://Tela do Jogo Flappy CAPTCHA.png" id="1_bj1uy"]
+[ext_resource type="Script" uid="uid://csah85nt8wke4" path="res://menu_principal.gd" id="1_gmcsc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bj1uy"]
+bg_color = Color(0.215686, 0.207843, 0.317647, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gmcsc"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Menu Principal" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_gmcsc")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 645.0
+texture = ExtResource("1_bj1uy")
+expand_mode = 1
+
+[node name="PlayButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 14.4
+anchor_top = 11.087
+anchor_right = 14.4
+anchor_bottom = 11.087
+offset_left = -253.0
+offset_top = -35.48
+offset_right = 253.0
+offset_bottom = 35.52
+theme_override_styles/normal = SubResource("StyleBoxFlat_bj1uy")
+
+[node name="EasterEgg" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 22.225
+anchor_top = 1.437
+anchor_right = 22.225
+anchor_bottom = 1.437
+offset_left = -74.0
+offset_top = -23.48
+offset_right = 74.0
+offset_bottom = 23.52
+pivot_offset = Vector2(153, 231)
+theme_override_styles/normal = SubResource("StyleBoxFlat_gmcsc")
+text = "Dev Info"
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_iniciar_jogo_button_pressed"]
+[connection signal="pressed" from="EasterEgg" to="." method="_on_easter_egg_button_pressed"]

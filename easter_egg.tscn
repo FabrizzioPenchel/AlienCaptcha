@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://c40muuhqqguiv"]
+
+[ext_resource type="Script" uid="uid://e7b4yu45uinx" path="res://easter_egg.gd" id="1_cq4x0"]
+[ext_resource type="Texture2D" uid="uid://bwwi1e0acjx2v" path="res://Descobrindo o Easter Egg no Bosque.png" id="1_mjf3p"]
+
+[node name="Easter Egg" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_cq4x0")
+
+[node name="Imagem" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 641.0
+texture = ExtResource("1_mjf3p")
+expand_mode = 1
+
+[node name="Voltar" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 26.537
+anchor_top = 13.15
+anchor_right = 26.537
+anchor_bottom = 13.15
+offset_left = -88.48
+offset_top = -115.0
+offset_right = 88.52
+offset_bottom = 115.0
+
+[connection signal="pressed" from="Voltar" to="." method="_on_Voltar_pressed"]

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dohxmcngssn5r"]
+
+[ext_resource type="Texture2D" uid="uid://c4wiriktnaif2" path="res://Predio.png" id="2_i7ucc"]
+[ext_resource type="Script" uid="uid://brqo4x40ybmcw" path="res://pipe.gd" id="3_i7ucc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e4kp2"]
+size = Vector2(8.6, 34.9)
+
+[node name="Pipe" type="StaticBody2D"]
+script = ExtResource("3_i7ucc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.90735e-06, 4.50002)
+scale = Vector2(10, 10)
+shape = SubResource("RectangleShape2D_e4kp2")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("2_i7ucc")

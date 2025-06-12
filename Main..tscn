@@ -1,0 +1,89 @@
+[gd_scene load_steps=9 format=3 uid="uid://33i56lcpenbl"]
+
+[ext_resource type="Script" uid="uid://byqekqu3gkbq4" path="res://_main_game.gd" id="1_nue1p"]
+[ext_resource type="Script" uid="uid://cnh64lhyibeuu" path="res://player.gd" id="2_e53ar"]
+[ext_resource type="Texture2D" uid="uid://bbo8sislbkcse" path="res://Alien.png" id="3_b35qs"]
+[ext_resource type="Script" uid="uid://onb5rax03aua" path="res://pipe_spawner.gd" id="4_gxmon"]
+[ext_resource type="Texture2D" uid="uid://gsgoa7sppp40" path="res://Noite.jpeg" id="5_2enr8"]
+[ext_resource type="Script" uid="uid://qawchnt7a0u7" path="res://timer_label.gd" id="6_x0f6v"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b35qs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_b35qs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l5w4i"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_nue1p")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("2_e53ar")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(80, 0)
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_b35qs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(80, 0)
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_l5w4i")
+
+[node name="Area2D" type="Area2D" parent="Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
+
+[node name="PipeSpawner" type="Node2D" parent="."]
+script = ExtResource("4_gxmon")
+
+[node name="Fundo" type="Sprite2D" parent="PipeSpawner"]
+z_index = -1
+position = Vector2(296.008, 209)
+scale = Vector2(149.697, 149.725)
+skew = 1.56905
+texture = ExtResource("5_2enr8")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="TimerLabel" type="Label" parent="UI"]
+anchors_preset = -1
+anchor_left = 0.067
+anchor_top = -0.001
+anchor_right = 0.067
+anchor_bottom = -0.001
+offset_left = -20.184
+offset_top = -11.352
+offset_right = 19.816
+offset_bottom = 11.648
+script = ExtResource("6_x0f6v")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = 32.0
+offset_top = -11.0
+offset_right = 386.0
+offset_bottom = 223.0
+mouse_filter = 1
+theme_override_font_sizes/font_size = 100
+text = "GAME OVER"
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+process_mode = 3
+visible = false
+offset_left = 53.0
+offset_top = 110.0
+offset_right = 601.0
+offset_bottom = 141.0
+text = "Reniciar"
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_restart_button_pressed"]

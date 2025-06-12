@@ -1,0 +1,10 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+".godot/" 
+".import/" 
+"*.exe" 
+"*.zip" 
+"*.godotenv" 
+"*.translation" 
+"*.translations" 
